@@ -1,0 +1,16 @@
+ORG 0000H
+
+CLR A              ; A = 00H
+
+; ---- Construct digit 7 (upper nibble) ----
+ORL A, #70H        ; A = 0111 0000  (70H)
+
+; ---- Construct digit 9 (lower nibble) ----
+ORL A, #09H        ; A = 0111 1001  (79H)
+
+; ---- Mask to ensure correctness ----
+ANL A, #7FH        ; Ensure valid BCD pattern
+
+HERE: SJMP HERE    ; Stop execution
+
+END
