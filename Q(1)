@@ -1,0 +1,23 @@
+ORG 0000H
+
+; -------- Generate 12 --------
+MOV A, #06H        ; A = 06
+ADD A, #06H        ; A = 12
+DAA                ; A = 12 (BCD)
+MOV B, A           ; B = 12
+
+; -------- Generate 19 --------
+MOV A, #09H        ; A = 09
+ADD A, #09H        ; A = 12H (18 decimal)
+DAA                ; A = 18 (BCD)
+ADD A, #01H        ; A = 19
+DAA                ; A = 19 (BCD)
+
+; -------- Final Result --------
+; B = 12
+; A = 19
+; AX = 1219
+
+HERE: SJMP HERE
+
+END
